@@ -1,0 +1,82 @@
+.nav-link {
+    color: #0a0a0a !important;
+    position: relative;
+    
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #333;
+    transition: all .3s ease-in-out;
+}
+
+.navbar-toggler {
+    position: relative;
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.navbar-toggler span {
+    display: block;
+    background-color: #000;
+    height: 2px;
+    width: 22px;
+    margin-bottom: 4px;
+    transition: all .5s ease-in-out;
+}
+
+.navbar-toggler span:last-child {
+    margin-bottom: 0;
+}
+
+.navbar-toggler.open span:nth-child(2) {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.navbar-toggler.open span:nth-child(1) {
+    transform: rotate(43deg) translateY(9px);
+}
+
+.navbar-toggler.open span:nth-child(3) {
+    transform: rotate(-43deg) translateY(-8px);
+}
+.navbar-toggler:hover{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.navbar-toggler{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+@media (max-width: 991.98px) {
+    .jh {
+      width: 100%;
+    }
+}
+

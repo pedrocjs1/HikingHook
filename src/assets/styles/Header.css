@@ -1,0 +1,45 @@
+header {
+  width: 100%;
+  height: 60vh;  
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+}
+
+#inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  position: relative;
+}
+
+.Logo {
+  color: #fff; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 3em;
+  z-index: 1;
+}
+
+.Eslogan {
+  color: #fff; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
+  z-index: 1;
+}
+
+
+.Video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%; /* cambio aquí */
+  z-index: -1;
+}
+
