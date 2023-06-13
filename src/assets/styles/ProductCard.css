@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --card-border-radius: 50px;
+    --content-theme-1: rgb(1, 113, 53);
+    --content-theme-2: rgb(194, 132, 53);
+    --content-theme-3: rgb(73, 206, 250);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.card {
+    position: relative !important;
+    width: 250px !important;
+    height: 400px !important;
+    border-radius: var(--card-border-radius) !important;
+    box-shadow: 0 4px 8px rgb(158, 158, 158) !important;
+    overflow: hidden !important;
+}
+
+
+@keyframes glitter {
+    0% {
+        transform: translate(-350px, -100px) rotate(-45deg);
+    }
+    100% {
+        transform: translate(100px, 500px) rotate(-45deg);
+    }
+}
+
+.card--front {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-border-radius);
+    transform: translateY(0);
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.card--front::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: lightgray;
+    transform-origin: center;
+    width: 500px;
+    height: 2px;
+    box-shadow: 0 0 4px 8px rgba(255, 255, 255, 0.4);
+    transform: translate(-350px, -100px) rotate(-45deg);
+}
+
+.card--back {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-border-radius);
+    background-color: rgb(246, 243, 243);
+}
+
+.front--img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--card-border-radius);
+}
+
+
+.front--price {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    transform: translateX(-50%);
+    padding: 25px;
+    background: linear-gradient(to bottom, transparent, rgba(54, 54, 54, 0.763));
+    text-align: center;
+    color: rgb(225, 225, 225);
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.card:hover > .card--front {
+    transform: translateY(-48%);
+    box-shadow: 0 20px 15px 0px rgb(198, 198, 198);
+}
+
+.card:hover > .card--front > .front--price {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+}
+
+.card--content {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 20px; */
+    overflow: auto !important;
+}
+
+.content--row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    word-break: break-word !important;
+}
+
+.brand--row {
+    margin-top: -15px;    
+}
+
+.content-brand {
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 5px !important;
+    margin-top: 7px !important;
+}
+
+.content--description {
+    font-size: 12px;
+    color: rgb(62, 62, 62);
+    max-width: 100% !important;
+    padding-bottom: .6rem !important;
+}
+
+.content--buy {
+    background: linear-gradient(to bottom right, rgb(53, 53, 53) 0.5%, var(--content-theme));
+    color: white;
+    border-radius: 25px;
+    border: unset;
+    /* padding: 15px 70px; */
+    cursor: pointer;
+}
+
+.content--cart {
+    width: 1rem;
+    border-radius: 1px;
+    padding: 15px;
+    background-color: rgb(218, 218, 218);
+    color: var(--content-theme);
+    border: unset;
+    cursor: pointer;
+}
+
+/* .content--buy, .content--cart {
+  
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+ 
+} */
+.content--buy{
+    width: 6rem;
+}
+
+
+/* Product card 1 styles */
+.card:nth-child(1) .card--front::after {
+    animation: glitter 1s ease-in-out forwards;
+}
+
+.card:nth-child(1) .content--buy {
+    background: linear-gradient(to bottom right, rgb(53, 53, 53) 0.5%, var(--content-theme-1));
+}
+
+.card:nth-child(1) .content--cart {
+    color: var(--content-theme-1);
+}
+
+/* Product card 2 styles */
+.card:nth-child(2) .card--front::after {
+    animation: glitter 1s 0.3s ease-in-out forwards;
+}
+
+.card:nth-child(2) .content--buy {
+    background: linear-gradient(to bottom right, rgb(53, 53, 53) 0.5%, var(--content-theme-2));
+}
+
+.card:nth-child(2) .content--cart {
+    color: var(--content-theme-2);
+}
+
+/* Product card 3 styles */
+.card:nth-child(3) .card--front::after {
+    animation: glitter 1s 0.6s ease-in-out forwards;
+}
+
+.card:nth-child(3) .content--buy {
+    background: linear-gradient(to bottom right, rgb(53, 53, 53) 0.5%, var(--content-theme-3));
+}
+
+.card:nth-child(3) .content--cart {
+    color: var(--content-theme-3);
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
+}
